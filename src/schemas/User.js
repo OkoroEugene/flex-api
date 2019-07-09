@@ -9,10 +9,25 @@ const User = new _Schema({
     firstName: String,
     lastName: String,
     phone: String,
+    address: [],
     password: {
         type: String,
         required: true
     },
+    card: [
+        {
+            cardNumber: String,
+            expDate: {
+                type: Date,
+                default: Date.now
+            },
+            cvv: String,
+            cardType: {
+                type: String,
+                enum: ["VISA", "MASTERCARD", "AMERICANEXPRESS"]
+            }
+        }
+    ],
     socialId: String,
     socialToken: String,
     socialName: String,

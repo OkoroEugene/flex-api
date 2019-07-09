@@ -15,4 +15,14 @@ DriverController.prototype.fetchDriver = function (req, res) {
     })
 }
 
+DriverController.prototype.avatar = function (req, res) {
+    return this.service.update({
+        user: req.user.id
+    }, {
+            avatarPhoto: req.body.avatarPhoto
+        }, (err, result) => {
+            return res.send(err || result)
+        })
+}
+
 module.exports = DriverController;
